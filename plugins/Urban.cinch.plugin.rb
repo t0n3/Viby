@@ -20,7 +20,7 @@ class Urban
           word = page.css(".word > a").first
           wordDef = page.css(".meaning").first
           wordDef.css("br").each{ |br| br.replace("\n") }
-          m.reply "#{m.user}, « #{word.content} » : #{wordDef.content}"
+          m.reply "#{m.user}, « #{word.content} » : #{wordDef.content.strip.lines.first.strip}"
         rescue 
           return m.reply "I don't know this word."
         end
