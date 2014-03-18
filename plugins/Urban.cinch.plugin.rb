@@ -17,9 +17,10 @@ class Urban
     def execute(m, word)
         page = Nokogiri::HTML(open("#{@url}#{CGI.escape(word)}"))
         begin
-          word = page.css(".word")
-          wordDef = page.css(".meaning")
-          m.reply "#{m.user}, « #{word} » : #{wordDef}"
+          word = page.css(".word > a").first
+          wordDef = page.css(".meaning").first
+          wordDef.css("br").each{ |br| br.replace("\n") }
+          m.reply "#{m.user}, « #{word.content} » : #{wordDef.content}"
         rescue 
           return m.reply "I don't know this word."
         end
