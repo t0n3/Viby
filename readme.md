@@ -1,3 +1,14 @@
+# How to 
+```bash
+git clone https://github.com/Shahor/Viby.git && cd Viby
+cp config.yml-dist config.yml
+bundle # Provided the bundler gem is installed ( If not : gem install bundler)
+# Edit the config as needed
+./viby
+```
+
+# Licence 
+
   DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
                     Version 2, December 2004 
 
