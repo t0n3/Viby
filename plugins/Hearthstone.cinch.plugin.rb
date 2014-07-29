@@ -57,7 +57,7 @@ class Hearthstone
   def showStat cname
     doc = Nokogiri::HTML(open("http://hearthstone.gamepedia.com/#{URI::encode(cname)}"))
     stats = []
-    doc.css("table.infobox").first.children.each do |infos|
+    doc.css(".stdinfobox > .body > table").first.children.each do |infos|
       infos.children.each do |row|
         stats.push(row.content.gsub(/( |\n)/, '')) if row.content.strip.match(/(Cost|Attack|HP|^\d+$)/)
       end
